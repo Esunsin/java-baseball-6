@@ -10,7 +10,9 @@ public class BaseBallGameStarter {
         BallMaker ballMaker = new BallMaker();
         Scanner scanner = new Scanner(System.in);
         List<Ball> computerBalls = ballMaker.makeComputerBalls();
+
         while(true) {
+            System.out.println("computerBalls.get(0) = " + computerBalls.get(0));
             System.out.print("숫자를 입력해 주세요 : ");
             int input = scanner.nextInt();
             List<Ball> userBalls = ballMaker.makeUserBalls(input);
@@ -19,13 +21,17 @@ public class BaseBallGameStarter {
             GameResult gameResult = gameJudgement.judge(userBalls, computerBalls);
 
             System.out.println(gameResult.strikeCount+"스트라이크 " + gameResult.ballCount+"볼");
-
+            //게임 새로 시작
             if(gameResult.strikeCount==3){
-                int a = 0;
+
+                System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+                int a = scanner.nextInt();
                 if(a == 1){
                     computerBalls = ballMaker.makeComputerBalls();
                 }
-                break;
+                else {
+                    break;
+                }
             }
         }
     }

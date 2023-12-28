@@ -20,6 +20,7 @@ public class GameJudgement {
                 gameResult.updateOneOut();
             }
         }
+        System.out.println("strike " + gameResult.strikeCount + " ball " + gameResult.ballCount + " out " +gameResult.outCount);
         return gameResult;
 
     }
