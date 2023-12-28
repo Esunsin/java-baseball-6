@@ -1,22 +1,28 @@
 package V2;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class BaseBallGameStarter {
+public class BaseBallGameStarter  {
+
+    private final InputVaildator inputVaildator;
+
+    public BaseBallGameStarter(InputVaildator inputVaildator) {
+        this.inputVaildator = inputVaildator;
+    }
 
     public void start() {
         BallMaker ballMaker = new BallMaker();
         Scanner scanner = new Scanner(System.in);
         List<Ball> computerBalls = ballMaker.makeComputerBalls();
-        GameException gameException = new GameException();
 
         while(true) {
             System.out.println(computerBalls.get(0).toString() + computerBalls.get(1).toString()+computerBalls.get(2).toString());
             System.out.print("숫자를 입력해 주세요 : ");
             int input = scanner.nextInt();
-            gameException.illegalArgumentException(input);
+            inputVaildator.validate(input);
+
+
             List<Ball> userBalls = ballMaker.makeUserBalls(input);
             System.out.println(userBalls.get(0).toString() + userBalls.get(1).toString()+userBalls.get(2).toString());
 

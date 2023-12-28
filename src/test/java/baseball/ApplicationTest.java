@@ -1,5 +1,6 @@
 package baseball;
 
+import V2.Ball;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
@@ -26,6 +27,23 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("1234"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void ball_is_equal(){
+        Ball ball1 = new Ball(1,1);
+        Ball ball2 = new Ball(1,1);
+
+        Boolean result = ball1.isSameBall(ball2);
+
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    void ball_is_not_equal(){
+        Ball ball1 = new Ball(1,1);
+        Ball ball2 = new Ball(1,2);
+        assertThat(ball1 == ball2).isTrue();
     }
 
     @Override
