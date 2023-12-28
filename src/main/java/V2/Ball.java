@@ -7,10 +7,17 @@ class Ball {
     private int number;
     private int order;
 
+    @Override
+    public String toString() {
+        return "Ball{" +
+                "number=" + number +
+                ", order=" + order +
+                '}';
+    }
+
     public Ball(int number, int order) {
-        if (1 > number && 9 < number) {
-            throw new IllegalArgumentException("number는 1부터 9까지만 가능합니다");
-        }
+        this.number= number;
+        this.order = order;
     }
 
     private Boolean isSameNumber (Ball target) {
