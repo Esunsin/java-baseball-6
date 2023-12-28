@@ -38,7 +38,7 @@ public class BaseBallGameStarter  {
                 if(a == 1){
                     computerBalls = ballMaker.makeComputerBalls();
                 }
-                else {
+                else {//
                     break;
                 }
             }
