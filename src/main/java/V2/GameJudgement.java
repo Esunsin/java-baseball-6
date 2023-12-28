@@ -32,7 +32,7 @@ public class GameJudgement {
 
     private boolean isStrike(Ball userBall, List<Ball> computerBall) {
         return computerBall.stream()
-                .filter(it -> userBall == it).count() > 0;
+                .filter(it -> userBall.isSameBall(it)).count() > 0;
     }
 
 }

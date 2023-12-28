@@ -1,10 +1,15 @@
 package V2;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class BaseBallGameStarter {
+public class BaseBallGameStarter  {
+
+    private final InputVaildator inputVaildator;
+
+    public BaseBallGameStarter(InputVaildator inputVaildator) {
+        this.inputVaildator = inputVaildator;
+    }
 
     public void start() {
         BallMaker ballMaker = new BallMaker();
@@ -15,6 +20,9 @@ public class BaseBallGameStarter {
             System.out.println("computerBalls.get(0) = " + computerBalls.get(0));
             System.out.print("숫자를 입력해 주세요 : ");
             int input = scanner.nextInt();
+            inputVaildator.validate(input);
+
+
             List<Ball> userBalls = ballMaker.makeUserBalls(input);
 
             GameJudgement gameJudgement = new GameJudgement();

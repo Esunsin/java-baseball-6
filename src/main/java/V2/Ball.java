@@ -2,7 +2,7 @@ package V2;
 
 import java.util.Objects;
 
-class Ball {
+public class Ball {
 
     private int number;
     private int order;
@@ -11,6 +11,10 @@ class Ball {
         if (1 > number && 9 < number) {
             throw new IllegalArgumentException("number는 1부터 9까지만 가능합니다");
         }
+
+        this.number = number;
+        this.order = order;
+
     }
 
     private Boolean isSameNumber (Ball target) {
@@ -38,4 +42,13 @@ class Ball {
     public int hashCode() {
         return Objects.hash(number, order);
     }
+
+    @Override
+    public String toString() {
+        return "Ball{" +
+            "number=" + number +
+            ", order=" + order +
+            '}';
+    }
 }
+
