@@ -21,7 +21,9 @@ public class GameJudgement {
     }
 
     private boolean isStrike(List<BallV4> computerBalls, BallV4 userBall) {
-        return computerBalls.stream()
-                .filter(it -> userBall.equals(it)).count() > 0;
+        boolean strike = false;
+        if(userBall.getNumber() == computerBalls.get(userBall.getIndex()).getNumber()) strike=true;
+
+        return strike;
     }
 }

@@ -20,5 +20,11 @@ public class BallV4 {
         return this.number == target.number && this.index != target.index;
     }
 
+    public int getNumber() {
+        return number;
+    }
 
+    public int getIndex() {
+        return index;
+    }
 }
